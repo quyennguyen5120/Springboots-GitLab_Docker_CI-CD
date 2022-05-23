@@ -10,5 +10,5 @@
 FROM openjdk:11-jdk
 WORKDIR jar
 COPY target/test-aws-0.0.1-SNAPSHOT.jar /app-jar/test-aws.jar
-EXPOSE 9998
-CMD ["java", "-jar", "/app-jar/spring-rest-api.jar"]
+EXPOSE 9997
+CMD ["java", "-jar", "/app-jar/test-aws.jar"]
