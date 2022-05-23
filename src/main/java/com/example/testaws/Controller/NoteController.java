@@ -1,5 +1,6 @@
 package com.example.testaws.Controller;
 
+import com.example.testaws.NoteDto;
 import com.example.testaws.NoteEntity;
 import com.example.testaws.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,15 @@ public class NoteController {
     public String index(Model model){
         model.addAttribute("lstNote", noteRepository.findAll());
         model.addAttribute("dto",new NoteEntity());
+        model.addAttribute("noteDto",new NoteDto());
+        return "index";
+    }
+
+    @PostMapping(value = "/search")
+    public String search(NoteDto noteDto, Model model){
+        model.addAttribute("lstNote", noteRepository.searchText(noteDto.getSearch()));
+        model.addAttribute("dto",new NoteEntity());
+        model.addAttribute("noteDto",new NoteDto());
         return "index";
     }
 

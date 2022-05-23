@@ -15,9 +15,15 @@
         CURD title
     </h1>
     </br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Thêm mới
-    </button>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Thêm mới
+        </button>
+        <form class="form-inline" method="post" th:action="@{/search}" th:object="${noteDto}">
+            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+    </nav>
     </br>
     <table class="table mt-3">
         <thead>
